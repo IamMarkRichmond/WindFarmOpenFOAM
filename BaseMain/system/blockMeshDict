@@ -1,0 +1,341 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.1                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      blockMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+convertToMeters 1;
+
+
+// ************************************************************************* //
+
+x0 0.0;
+x1 600;
+x2 1200;
+x3 1700;
+x4 2200;
+x5 2700;
+x6 3200;
+x7 3700;
+x8 10000;
+
+y0 -80.0;
+y1 80.0;
+y2 1920.0;
+
+z0 -4000.0;
+z1 4000.0;
+z2 -8000.0;
+z3 8000.0;
+
+// number of cells
+dx0 70;
+dx1 140;
+dx2 117;
+dx3 93;
+
+dy0 15;
+dy1 34; // = (11.5/d)*dy0 (where d is gradient/2)
+
+dz0 600; //change to 500
+dz1 60; // = 4000/(gradient*a) where a is the cells per meter for middle
+
+// gradients
+
+ddy0 10;
+
+vertices
+(
+	( $x0 $y0 $z0 )
+	( $x1 $y0 $z0 )
+	( $x1 $y1 $z0 )
+	( $x0 $y1 $z0 )
+	( $x0 $y0 $z1 )
+	( $x1 $y0 $z1 )
+	( $x1 $y1 $z1 )
+	( $x0 $y1 $z1 )
+	( $x2 $y0 $z0 )
+	( $x2 $y1 $z0 )
+	( $x2 $y0 $z1 )
+	( $x2 $y1 $z1 )
+	( $x3 $y0 $z0 )
+	( $x3 $y1 $z0 )
+	( $x3 $y0 $z1 )
+	( $x3 $y1 $z1 )
+	( $x4 $y0 $z0 )
+	( $x4 $y1 $z0 )
+	( $x4 $y0 $z1 )
+	( $x4 $y1 $z1 )
+	( $x5 $y0 $z0 )
+	( $x5 $y1 $z0 )
+	( $x5 $y0 $z1 )
+	( $x5 $y1 $z1 )
+	( $x6 $y0 $z0 )
+	( $x6 $y1 $z0 )
+	( $x6 $y0 $z1 )
+	( $x6 $y1 $z1 )
+	( $x7 $y0 $z0 )
+	( $x7 $y1 $z0 )
+	( $x7 $y0 $z1 )
+	( $x7 $y1 $z1 )
+	( $x8 $y0 $z0 )
+	( $x8 $y1 $z0 )
+	( $x8 $y0 $z1 )
+	( $x8 $y1 $z1 ) //35
+	( $x0 $y0 $z2 ) // = 0+36 = 36
+	( $x1 $y0 $z2 )
+	( $x1 $y1 $z2 )
+	( $x0 $y1 $z2 )
+	( $x0 $y0 $z3 )
+	( $x1 $y0 $z3 )
+	( $x1 $y1 $z3 )
+	( $x0 $y1 $z3 )
+	( $x2 $y0 $z2 )
+	( $x2 $y1 $z2 )
+	( $x2 $y0 $z3 )
+	( $x2 $y1 $z3 )
+	( $x3 $y0 $z2 )
+	( $x3 $y1 $z2 )
+	( $x3 $y0 $z3 )
+	( $x3 $y1 $z3 )
+	( $x4 $y0 $z2 )
+	( $x4 $y1 $z2 )
+	( $x4 $y0 $z3 )
+	( $x4 $y1 $z3 )
+	( $x5 $y0 $z2 )
+	( $x5 $y1 $z2 )
+	( $x5 $y0 $z3 )
+	( $x5 $y1 $z3 )
+	( $x6 $y0 $z2 )
+	( $x6 $y1 $z2 )
+	( $x6 $y0 $z3 )
+	( $x6 $y1 $z3 )
+	( $x7 $y0 $z2 )
+	( $x7 $y1 $z2 )
+	( $x7 $y0 $z3 )
+	( $x7 $y1 $z3 )
+	( $x8 $y0 $z2 )
+	( $x8 $y1 $z2 )
+	( $x8 $y0 $z3 )
+	( $x8 $y1 $z3 ) //71
+	( $x0 $y2 $z2 ) // = 0+72 = 72
+	( $x1 $y2 $z2 )
+	( $x2 $y2 $z2 )
+	( $x3 $y2 $z2 )
+	( $x4 $y2 $z2 )
+	( $x5 $y2 $z2 )
+	( $x6 $y2 $z2 )
+	( $x7 $y2 $z2 )
+	( $x8 $y2 $z2 ) // 80
+	( $x0 $y2 $z0 )
+	( $x1 $y2 $z0 )
+	( $x2 $y2 $z0 )
+	( $x3 $y2 $z0 )
+	( $x4 $y2 $z0 )
+	( $x5 $y2 $z0 )
+	( $x6 $y2 $z0 )
+	( $x7 $y2 $z0 )
+	( $x8 $y2 $z0 ) // 89
+	( $x0 $y2 $z1 )
+	( $x1 $y2 $z1 )
+	( $x2 $y2 $z1 )
+	( $x3 $y2 $z1 )
+	( $x4 $y2 $z1 )
+	( $x5 $y2 $z1 )
+	( $x6 $y2 $z1 )
+	( $x7 $y2 $z1 )
+	( $x8 $y2 $z1 ) // 98
+	( $x0 $y2 $z3 )
+	( $x1 $y2 $z3 )
+	( $x2 $y2 $z3 )
+	( $x3 $y2 $z3 )
+	( $x4 $y2 $z3 )
+	( $x5 $y2 $z3 )
+	( $x6 $y2 $z3 )
+	( $x7 $y2 $z3 )
+	( $x8 $y2 $z3 ) //107
+
+); 
+
+blocks 
+(
+	hex ( 0 1 2 3 4 5 6 7 ) ( $dx0 $dy0 $dz0 ) simpleGrading ( 1 1 1)
+	hex ( 1 8 9 2 5 10 11 6 ) ( $dx1 $dy0 $dz0 ) simpleGrading ( 0.1 1 1 )
+	hex ( 8 12 13 9 10 14 15 11 ) ( $dx2 $dy0 $dz0 ) simpleGrading ( 10 1 1 )
+	hex ( 12 16 17 13 14 18 19 15 ) ( $dx2 $dy0 $dz0 ) simpleGrading ( 0.1 1 1 )
+	hex ( 16 20 21 17 18 22 23 19 ) ( $dx2 $dy0 $dz0 ) simpleGrading ( 10 1 1 )
+	hex ( 20 24 25 21 22 26 27 23 ) ( $dx2 $dy0 $dz0 ) simpleGrading ( 0.1 1 1 )
+	hex ( 24 28 29 25 26 30 31 27 ) ( $dx2 $dy0 $dz0 ) simpleGrading ( 10 1 1 )
+	hex ( 28 32 33 29 30 34 35 31 ) ( $dx3 $dy0 $dz0 ) simpleGrading ( 1 1 1 ) // end middle
+	hex ( 36 37 38 39  0 1 2 3) ( $dx0 $dy0 $dz1 ) simpleGrading ( 1 1 0.1)
+	hex ( 37 44 45 38 1 8 9 2 ) ( $dx1 $dy0 $dz1 ) simpleGrading ( 0.1 1 0.1 )
+	hex ( 44 48 49 45 8 12 13 9 ) ( $dx2 $dy0 $dz1 ) simpleGrading ( 10 1 0.1 )
+	hex ( 48 52 53 49 12 16 17 13 ) ( $dx2 $dy0 $dz1 ) simpleGrading ( 0.1 1 0.1 )
+	hex ( 52 56 57 53 16 20 21 17 ) ( $dx2 $dy0 $dz1 ) simpleGrading ( 10 1 0.1 )
+	hex ( 56 60 61 57 20 24 25 21 ) ( $dx2 $dy0 $dz1 ) simpleGrading ( 0.1 1 0.1 )
+	hex ( 60 64 65 61 24 28 29 25 ) ( $dx2 $dy0 $dz1 ) simpleGrading ( 10 1 0.1 )
+	hex ( 64 68 69 65 28 32 33 29 ) ( $dx3 $dy0 $dz1 ) simpleGrading ( 1 1 0.1 ) // end left
+	hex ( 4 5 6 7 40 41 42 43 ) ( $dx0 $dy0 $dz1 ) simpleGrading ( 1 1 10)
+	hex ( 5 10 11 6 41 46 47 42 ) ( $dx1 $dy0 $dz1 ) simpleGrading ( 0.1 1 10 )
+	hex ( 10 14 15 11 46 50 51 47 ) ( $dx2 $dy0 $dz1 ) simpleGrading ( 10 1 10 )
+	hex ( 14 18 19 15 50 54 55 51 ) ( $dx2 $dy0 $dz1 ) simpleGrading ( 0.1 1 10 )
+	hex ( 18 22 23 19 54 58 59 55 ) ( $dx2 $dy0 $dz1 ) simpleGrading ( 10 1 10 )
+	hex ( 22 26 27 23 58 62 63 59 ) ( $dx2 $dy0 $dz1 ) simpleGrading ( 0.1 1 10 )
+	hex ( 26 30 31 27 62 66 67 63 ) ( $dx2 $dy0 $dz1 ) simpleGrading ( 10 1 10 )
+	hex ( 30 34 35 31 66 70 71 67 ) ( $dx3 $dy0 $dz1 ) simpleGrading ( 1 1 10 ) // end right
+	hex ( 3 2 82 81 7 6 91 90 ) ( $dx0 $dy1 $dz0 ) simpleGrading ( 1 $ddy0 1)
+	hex ( 2 9 83 82 6 11 92 91 ) ( $dx1 $dy1 $dz0 ) simpleGrading ( 0.1 $ddy0 1 )
+	hex ( 9 13 84 83 11 15 93 92 ) ( $dx2 $dy1 $dz0 ) simpleGrading ( 10 $ddy0 1 )
+	hex ( 13 17 85 84 15 19 94 93 ) ( $dx2 $dy1 $dz0 ) simpleGrading ( 0.1 $ddy0 1 )
+	hex ( 17 21 86 85 19 23 95 94 ) ( $dx2 $dy1 $dz0 ) simpleGrading ( 10 $ddy0 1 )
+	hex ( 21 25 87 86 23 27 96 95 ) ( $dx2 $dy1 $dz0 ) simpleGrading ( 0.1 $ddy0 1 )
+	hex ( 25 29 88 87 27 31 97 96 ) ( $dx2 $dy1 $dz0 ) simpleGrading ( 10 $ddy0 1 )
+	hex ( 29 33 89 88 31 35 98 97 ) ( $dx3 $dy1 $dz0 ) simpleGrading ( 1 $ddy0 1 ) // end middle
+	hex ( 39 38 73 72 3 2 82 81) ( $dx0 $dy1 $dz1 ) simpleGrading ( 1 $ddy0 0.1)
+	hex ( 38 45 74 73 2 9 83 82 ) ( $dx1 $dy1 $dz1 ) simpleGrading ( 0.1 $ddy0 0.1 )
+	hex ( 45 49 75 74 9 13 84 83 ) ( $dx2 $dy1 $dz1 ) simpleGrading ( 10 $ddy0 0.1 )
+	hex ( 49 53 76 75 13 17 85 84 ) ( $dx2 $dy1 $dz1 ) simpleGrading ( 0.1 $ddy0 0.1 )
+	hex ( 53 57 77 76 17 21 86 85 ) ( $dx2 $dy1 $dz1 ) simpleGrading ( 10 $ddy0 0.1 )
+	hex ( 57 61 78 77 21 25 87 86 ) ( $dx2 $dy1 $dz1 ) simpleGrading ( 0.1 $ddy0 0.1 )
+	hex ( 61 65 79 78 25 29 88 87 ) ( $dx2 $dy1 $dz1 ) simpleGrading ( 10 $ddy0 0.1 )
+	hex ( 65 69 80 79 29 33 89 88 ) ( $dx3 $dy1 $dz1 ) simpleGrading ( 1 $ddy0 0.1 ) // end left
+	hex ( 7 6 91 90 43 42 100 99 ) ( $dx0 $dy1 $dz1 ) simpleGrading ( 1 $ddy0 10)
+	hex ( 6 11 92 91 42 47 101 100 ) ( $dx1 $dy1 $dz1 ) simpleGrading ( 0.1 $ddy0 10 )
+	hex ( 11 15 93 92 47 51 102 101 ) ( $dx2 $dy1 $dz1 ) simpleGrading ( 10 $ddy0 10 )
+	hex ( 15 19 94 93 51 55 103 102 ) ( $dx2 $dy1 $dz1 ) simpleGrading ( 0.1 $ddy0 10 )
+	hex ( 19 23 95 94 55 59 104 103 ) ( $dx2 $dy1 $dz1 ) simpleGrading ( 10 $ddy0 10 )
+	hex ( 23 27 96 95 59 63 105 104 ) ( $dx2 $dy1 $dz1 ) simpleGrading ( 0.1 $ddy0 10 )
+	hex ( 27 31 97 96 63 67 106 105 ) ( $dx2 $dy1 $dz1 ) simpleGrading ( 10 $ddy0 10 )
+	hex ( 31 35 98 97 67 71 107 106 ) ( $dx3 $dy1 $dz1 ) simpleGrading ( 1 $ddy0 10 ) // end right
+);
+
+patches
+(
+	patch inlet
+	(
+		( 0 4 7 3 )
+		( 36 0 3 39 )
+		( 4 40 43 7 )
+		( 39 3 81 72 )
+		( 3 7 90 81 )
+		( 7 43 99 90 )
+	)
+
+	patch outlet
+	(
+		( 33 35 34 32 )
+		( 35 71 70 34 )
+		( 69 33 32 68 )
+		( 80 89 33 69 )
+		( 89 98 35 33 )
+		( 98 107 71 35 )
+	)
+
+	wall wall_left
+	(
+		( 36 39 38 37 )
+		( 37 38 45 44 )
+		( 44 45 49 48 )
+		( 48 49 53 52 )
+		( 52 53 57 56 )
+		( 56 57 61 60 )
+		( 60 61 65 64 )
+		( 64 65 69 68 ) // end bottom
+		( 39 72 73 38 )
+		( 38 73 74 45 )
+		( 45 74 75 49 )
+		( 49 75 76 53 )
+		( 53 76 77 57 )
+		( 57 77 78 61 )
+		( 61 78 79 65 )
+		( 65 79 80 69 )
+
+	)
+	wall wall_right
+	(
+		( 41 42 43 40 )
+		( 46 47 42 41 )
+		( 50 51 47 46 )
+		( 54 55 51 50 )
+		( 58 59 55 54 )
+		( 62 63 59 58 )
+		( 66 67 63 62 )
+		( 70 71 67 66 ) // end bottom
+		( 42 100 99 43 )
+		( 47 101 100 42 )
+		( 51 102 101 47 )
+		( 55 103 102 51 )
+		( 59 104 103 55 )
+		( 63 105 104 59 )
+		( 67 106 105 63 )
+		( 71 107 106 67 )
+	)
+	wall wall_bottom
+	(
+		( 0 1 5 4 )
+		( 1 8 10 5 )
+		( 8 12 14 10 )
+		( 12 16 18 14 )
+		( 16 20 22 18 )
+		( 20 24 26 22 )
+		( 24 28 30 26 )
+		( 28 32 34 30 )
+		( 36 37 1 0 )
+		( 37 44 8 1 )
+		( 44 48 12 8 )
+		( 48 52 16 12 )
+		( 52 56 20 16 )
+		( 56 60 24 20 )
+		( 60 64 28 24 )
+		( 64 68 32 28 )
+		( 4 5 41 40 )
+		( 5 10 46 41 )
+		( 10 14 50 46 )
+		( 14 18 54 50 )
+		( 18 22 58 54 )
+		( 22 26 62 58 )
+		( 26 30 66 62 )
+		( 30 34 70 66 )
+	)
+	wall wall_top
+	(
+		( 90 91 82 81 )
+		( 91 92 83 82 )
+		( 92 93 84 83 )
+		( 93 94 85 84 )
+		( 94 95 86 85 )
+		( 95 96 87 86 )
+		( 96 97 88 87 )
+		( 97 98 89 88 )
+		( 81 82 73 72 )
+		( 82 83 74 73 )
+		( 83 84 75 74 )
+		( 84 85 76 75 )
+		( 85 86 77 76 )
+		( 86 87 78 77 )
+		( 87 88 79 78 )
+		( 88 89 80 79 )
+		( 99 100 91 90 )
+		( 100 101 92 91 )
+		( 101 102 93 92 )
+		( 102 103 94 93 )
+		( 103 104 95 94 )
+		( 104 105 96 95 )
+		( 105 106 97 96 )
+		( 106 107 98 97 )
+	)
+);
+
+mergePatchPairs
+(
+);

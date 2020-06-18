@@ -1,0 +1,97 @@
+#!/bin/bash
+##
+## OpenFOAM submission script for PBS on DELTA
+## --------------------------------------
+##
+## Follow the 6 steps below to configure your job
+## 
+## STEP 1:
+##
+## Enter a job name after the -N on the line below:
+##
+#PBS -N p1_openFOAM
+##
+## STEP 2:
+##
+## Select the number of cpus/cores required by modifying the #PBS -l select line below
+##
+## Normally you select cpus in chunks of 16 cpus
+## The Maximum value for ncpus is 16 and mpiprocs MUST be the same value as ncpus.
+##
+## If more than 16 cpus are required then select multiple chunks of 16
+## e.g.	16 CPUs: select=1:ncpus=16:mpiprocs=16
+##	32 CPUs: select=2:ncpus=16:mpiprocs=16
+##	48 CPUs: select=3:ncpus=16:mpiprocs=16
+##	..etc..
+##
+#PBS -l select=2:ncpus=16:mpiprocs=16
+##
+## STEP 3:
+##
+## Select the correct queue by modifying the #PBS -q line below
+##
+## half_hour	-  30 minutes
+## one_hour	-   1 hour
+## half_day	-  12 hours
+## one_day	-  24 hours
+## two_day	-  48 hours
+## five_day	- 120 hours
+## ten_day	- 240 hours (by special arrangement)
+##
+#PBS -q two_day
+##
+## STEP 4:
+##
+## Replace the hpc@cranfield.ac.uk email address
+## with your Cranfield email address on the #PBS -M line below:
+## Your email address is NOT your username
+##
+#PBS -m abe 
+#PBS -M m.richmond@cranfield.ac.uk
+##
+## ====================================
+## DO NOT CHANGE THE LINES BETWEEN HERE
+## ====================================
+#PBS -j oe
+#PBS -W sandbox=PRIVATE
+#PBS -k n
+ln -s $PWD $PBS_O_WORKDIR/$PBS_JOBID
+## Change to working directory
+cd $PBS_O_WORKDIR
+## Calculate number of CPUs
+cpus=`cat $PBS_NODEFILE | wc -l`
+## set some MPI tuning parameters to use the correct transport
+export I_MPI_FABRICS=shm:dapl
+export I_MPI_DAPL_UD=enable
+export I_MPI_PLATFORM=bdw
+export I_MPI_ADJUST_ALLREDUCE=5
+## ========
+## AND HERE
+## ========
+##
+## STEP 5: 
+## 
+##  Load the default application environment
+##  For a specific version add the version number, e.g.
+##  module load intel/2016b
+##
+module load OpenFOAM/4.0-intel-2016b
+source $FOAM_BASH
+##
+## STEP 6: 
+## 
+## Run MPI code 
+##
+## The main parameter to modify is your mpi program name
+## - change YOUR_EXECUTABLE to your own filename
+## 
+
+decomposePar
+mpirun -np ${cpus} /mnt/gpfs0/home/s263059/OpenFOAM/s263059-4.0/platforms/linux64IccDPInt32Opt/bin/actuatorDiskExplicitForceSimpleFoam -parallel > log.p1
+reconstructPar -latestTime
+
+## Tidy up the log directory
+## DO NOT CHANGE THE LINE BELOW
+## ============================
+rm $PBS_O_WORKDIR/$PBS_JOBID
+#

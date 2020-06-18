@@ -1,0 +1,4 @@
+actuatorDiskExplicitForceSimpleFoam.C
+actuatorDiskExplicitForce.C
+
+EXE = $(FOAM_USER_APPBIN)/actuatorDiskExplicitForceSimpleFoam

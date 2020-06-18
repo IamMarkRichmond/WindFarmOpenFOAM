@@ -1,0 +1,312 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.1                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      fvSolution;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+solvers
+{
+    p
+    {
+        solver           GAMG;
+        tolerance        1e-7;
+        relTol           0.1;
+        smoother         GaussSeidel;
+    }
+
+    U
+    {
+        solver           smoothSolver;
+        smoother         GaussSeidel;
+        tolerance        1e-8;
+        relTol           0.1;
+        nSweeps          1;
+    }
+
+    k
+    {
+        solver           smoothSolver;
+        smoother         GaussSeidel;
+        tolerance        1e-8;
+        relTol           0.1;
+        nSweeps          1;
+    }
+
+    epsilon
+    {
+        solver           smoothSolver;
+        smoother         GaussSeidel;
+        tolerance        1e-8;
+        relTol           0.1;
+        nSweeps          1;
+    }
+}
+
+SIMPLE
+{
+    nNonOrthogonalCorrectors 0;
+
+    residualControl
+    {
+        p               1e-3;
+        U               1e-4;
+        "(k|epsilon)"   1e-4;
+    }
+}
+
+relaxationFactors
+{
+    fields
+    {
+        p               0.3;
+    }
+    equations
+    {
+        U               0.7;
+        k               0.7;
+        epsilon         0.7;
+    }
+}
+
+cache
+{
+    grad(U);
+}
+
+actuatorDisk1
+{
+    interiorRadius        1.5;
+    exteriorRadius        53.5;
+    density               1.2;
+    startPoint            (1200.0 0 239.56);
+    endPoint              (1199.0 0 239.56);
+}
+
+actuatorDisk2
+{
+    interiorRadius        1.5;
+    exteriorRadius        53.5;
+    density               1.2;
+    startPoint            (1200.0 0 -250.00);
+    endPoint              (1199.0 0 -250.00);
+}
+
+actuatorDisk3
+{
+    interiorRadius        1.5;
+    exteriorRadius        53.5;
+    density               1.2;
+    startPoint            (1200.0 0 -767.70);
+    endPoint              (1199.0 0 -767.70);
+}
+
+actuatorDisk4
+{
+    interiorRadius        1.5;
+    exteriorRadius        53.5;
+    density               1.2;
+    startPoint            (1200.0 0 -1271.32);
+    endPoint              (1199.0 0 -1271.32);
+}
+
+actuatorDisk5
+{
+    interiorRadius        1.5;
+    exteriorRadius        53.5;
+    density               1.2;
+    startPoint            (1200.0 0 -1760.882);
+    endPoint              (1199.0 0 -1760.88);
+}
+
+actuatorDisk6
+{
+    interiorRadius        1.5;
+    exteriorRadius        53.5;
+    density               1.2;
+    startPoint            (1200.0 0 -2776.58);
+    endPoint              (1199.0 0 -2776.58);
+}
+
+actuatorDisk7
+{
+    interiorRadius        1.5;
+    exteriorRadius        53.5;
+    density               1.2;
+    startPoint            (2200.0 0 2194.99);
+    endPoint              (2199.0 0 2194.99);
+}
+
+actuatorDisk8
+{
+    interiorRadius        1.5;
+    exteriorRadius        53.5;
+    density               1.2;
+    startPoint            (2200.0 0 1685.73);
+    endPoint              (2199.0 0 1685.73);
+}
+
+actuatorDisk9
+{
+    interiorRadius        1.5;
+    exteriorRadius        53.5;
+    density               1.2;
+    startPoint            (2200.0 0 1182.10);
+    endPoint              (2199.0 0 1182.10);
+}
+
+actuatorDisk10
+{
+    interiorRadius        1.5;
+    exteriorRadius        53.5;
+    density               1.2;
+    startPoint            (2200.0 0 698.17);
+    endPoint              (2199.0 0 698.17);
+}
+
+actuatorDisk11
+{
+    interiorRadius        1.5;
+    exteriorRadius        53.5;
+    density               1.2;
+    startPoint            (2200.0 0 -309.08);
+    endPoint              (2199.0 0 -309.08);
+}
+
+actuatorDisk12
+{
+    interiorRadius        1.5;
+    exteriorRadius        53.5;
+    density               1.2;
+    startPoint            (2200.0 0 -798.65);
+    endPoint              (2199.0 0 -798.65);
+}
+
+actuatorDisk13
+{
+    interiorRadius        1.5;
+    exteriorRadius        53.5;
+    density               1.2;
+    startPoint            (2200.0 0 -1302.27);
+    endPoint              (2199.0 0 -1302.27);
+}
+
+actuatorDisk14
+{
+    interiorRadius        1.5;
+    exteriorRadius        53.5;
+    density               1.2;
+    startPoint            (2200.0 0 -1786.21);
+    endPoint              (2199.0 0 -1786.21);
+}
+
+actuatorDisk15
+{
+    interiorRadius        1.5;
+    exteriorRadius        53.5;
+    density               1.2;
+    startPoint            (2200.0 0 -2289.84);
+    endPoint              (2199.0 0 -2289.84);
+}
+
+actuatorDisk16
+{
+    interiorRadius        1.5;
+    exteriorRadius        53.5;
+    density               1.2;
+    startPoint            (2200.0 0 -2779.40);
+    endPoint              (2199.0 0 -2779.40);
+}
+
+actuatorDisk17
+{
+    interiorRadius        1.5;
+    exteriorRadius        53.5;
+    density               1.2;
+    startPoint            (3200.0 0 2102.14);
+    endPoint              (3199.0 0 2102.14);
+}
+
+actuatorDisk18
+{
+    interiorRadius        1.5;
+    exteriorRadius        53.5;
+    density               1.2;
+    startPoint            (3200.0 0 1654.78);
+    endPoint              (3199.0 0 1654.78);
+}
+
+actuatorDisk19
+{
+    interiorRadius        1.5;
+    exteriorRadius        53.5;
+    density               1.2;
+    startPoint            (3200.0 0 1198.99);
+    endPoint              (3199.0 0 1198.99);
+}
+
+actuatorDisk20
+{
+    interiorRadius        1.5;
+    exteriorRadius        53.5;
+    density               1.2;
+    startPoint            (3200.0 0 748.82);
+    endPoint              (3199.0 0 748.82);
+}
+
+actuatorDisk21
+{
+    interiorRadius        1.5;
+    exteriorRadius        53.5;
+    density               1.2;
+    startPoint            (3200.0 0 298.65);
+    endPoint              (3199.0 0 298.65);
+}
+
+actuatorDisk22
+{
+    interiorRadius        1.5;
+    exteriorRadius        53.5;
+    density               1.2;
+    startPoint            (3200.0 0 -157.15);
+    endPoint              (3199.0 0 -157.15);
+}
+
+actuatorDisk23
+{
+    interiorRadius        1.5;
+    exteriorRadius        53.5;
+    density               1.2;
+    startPoint            (3200.0 0 -612.95);
+    endPoint              (3199.0 0 -612.95);
+}
+
+actuatorDisk24
+{
+    interiorRadius        1.5;
+    exteriorRadius        53.5;
+    density               1.2;
+    startPoint            (3200.0 0 -1068.75);
+    endPoint              (3199.0 0 -1068.75);
+}
+
+actuatorDisk25
+{
+    interiorRadius        1.5;
+    exteriorRadius        53.5;
+    density               1.2;
+    startPoint            (3200.0 0 -1490.78);
+    endPoint              (3199.0 0 -1490.78);
+}
+
+// ************************************************************************* //
